@@ -1,3 +1,6 @@
+using System.Collections;
+using JetBrains.Annotations;
+using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,8 +13,17 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Settings")]
     public float speed;
+    
+    public float jumpForce;
 
     float xRot, yRot;
+
+    [SerializeField] bool isMovingUp;
+    Rigidbody rb;
+    [SerializeField] float maxVelocity;
+    double jumpTimer;
+
+    [SerializeField] float velocity;
 
     //public Animator animator;
 
@@ -20,19 +32,36 @@ public class PlayerMovement : MonoBehaviour
     {
         //animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        velocity = rb.linearVelocity.magnitude;
         HandleMovement();
         HandleCamera();
+        HandleJump();
+
+        if (velocity <= .01f)
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
+
+        
+
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
+
+        
     }
 
     void HandleMovement()
     {
         float movez = Input.GetAxis("Horizontal");
         float movex = Input.GetAxis("Vertical");
+        
 
         Vector3 moveDir = new Vector3( movez, 0, movex);
 
@@ -44,9 +73,13 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = 2;
         }
+        transform.Translate(moveDir * speed * Time.deltaTime); 
+        // rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
 
-
-            transform.Translate(moveDir * speed * Time.deltaTime); 
+        // if (movez <= .01f && movex <= .01f)
+        // {
+        //     rb.linearVelocity = Vector3.zero;
+        // }
 
         //animator.SetFloat("vertical", movex);
         //animator.SetFloat("horizontal", movez);
@@ -64,5 +97,43 @@ public class PlayerMovement : MonoBehaviour
         cameraHolder.transform.localRotation = Quaternion.Euler(xRot, 0, 0);
         transform.rotation = Quaternion.Euler(0, yRot, 0);
 
+        
+
+    }
+
+    void HandleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isMovingUp)
+        {
+            isMovingUp = true;
+            jumpTimer = Time.time + .1f;
+            StartCoroutine(JumpSmoother());
+
+        }
+    }
+
+    IEnumerator JumpSmoother()
+    {
+        while (Input.GetKey(KeyCode.Space) && isMovingUp && Time.time < jumpTimer)
+        {
+            //transform.Translate(Vector3.up * .1f); for just moving the player up without physics
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);// physics based jump
+
+            yield return new WaitForSeconds(.01f);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isMovingUp = false;
+            rb.linearVelocity = Vector3.zero;
+        }
+    }
+
+    void OnCollinStay(Collision collision)
+    {
+        rb.linearVelocity = Vector3.zero;
     }
 }
