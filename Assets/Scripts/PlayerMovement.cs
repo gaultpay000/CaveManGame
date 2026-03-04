@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float mouseSensativity = 2f;
     public float verticalClamp = 90f;
     public GameObject cameraHolder;
+    public GameObject clubPos;
 
     [Header("Movement Settings")]
     public float speed;
@@ -18,12 +19,13 @@ public class PlayerMovement : MonoBehaviour
 
     float xRot, yRot;
 
-    [SerializeField] bool isMovingUp;
-    Rigidbody rb;
+    public bool isMovingUp;
+    public Rigidbody rb;
     [SerializeField] float maxVelocity;
     double jumpTimer;
 
     [SerializeField] float velocity;
+    [SerializeField] float linearDampening;
 
     //public Animator animator;
 
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         //animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
-
+        rb.linearDamping = 3;
     }
 
     // Update is called once per frame
@@ -45,16 +47,11 @@ public class PlayerMovement : MonoBehaviour
         HandleCamera();
         HandleJump();
 
-        if (velocity <= .01f)
+        if (velocity <= .1f)
         {
             rb.linearVelocity = Vector3.zero;
         }
-
-        
-
         rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
-
-        
     }
 
     void HandleMovement()
@@ -73,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = 2;
         }
-        transform.Translate(moveDir * speed * Time.deltaTime); 
-        // rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
+        //transform.Translate(moveDir * speed * Time.deltaTime); 
+        rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
 
         // if (movez <= .01f && movex <= .01f)
         // {
@@ -96,9 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
         cameraHolder.transform.localRotation = Quaternion.Euler(xRot, 0, 0);
         transform.rotation = Quaternion.Euler(0, yRot, 0);
-
-        
-
     }
 
     void HandleJump()
@@ -108,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
             isMovingUp = true;
             jumpTimer = Time.time + .1f;
             StartCoroutine(JumpSmoother());
-
+            rb.linearDamping = 1;
         }
     }
 
@@ -119,21 +113,22 @@ public class PlayerMovement : MonoBehaviour
             //transform.Translate(Vector3.up * .1f); for just moving the player up without physics
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);// physics based jump
 
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(.1f);
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && isMovingUp)
         {
+            //isMovingUp = false;
+            //rb.linearVelocity = Vector3.zero;
+            rb.linearDamping = 3;
             isMovingUp = false;
-            rb.linearVelocity = Vector3.zero;
         }
     }
-
-    void OnCollinStay(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
-        rb.linearVelocity = Vector3.zero;
+        isMovingUp = true;
     }
 }
