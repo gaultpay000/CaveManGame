@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float velocity;
     [SerializeField] float linearDampening;
+    bool unmovingWASD;
 
     //public Animator animator;
 
@@ -52,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
         }
         rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
+
+        if (unmovingWASD && !isMovingUp)
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
     }
 
     void HandleMovement()
@@ -63,15 +69,24 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDir = new Vector3( movez, 0, movex);
 
         if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 5;
-        }
+            speed = 3;
         else
-        {
             speed = 2;
-        }
+
         //transform.Translate(moveDir * speed * Time.deltaTime); 
         rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
+
+        if (isMovingUp)
+        {
+            rb.linearDamping = 2;
+            rb.AddForce(Vector3.down *3, ForceMode.Acceleration);
+        }
+        else rb.linearDamping = 3;
+
+        if (movez <= .01f && movex <= .01f)
+            unmovingWASD = true;
+        else 
+            unmovingWASD = false;
 
         // if (movez <= .01f && movex <= .01f)
         // {
@@ -102,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
             isMovingUp = true;
             jumpTimer = Time.time + .1f;
             StartCoroutine(JumpSmoother());
-            rb.linearDamping = 1;
         }
     }
 
@@ -111,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         while (Input.GetKey(KeyCode.Space) && isMovingUp && Time.time < jumpTimer)
         {
             //transform.Translate(Vector3.up * .1f); for just moving the player up without physics
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);// physics based jump
+            rb.AddForce(Vector3.up * 1.5f * jumpForce, ForceMode.Impulse);// physics based jump
 
             yield return new WaitForSeconds(.1f);
         }
