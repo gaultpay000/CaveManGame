@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6250259054089448539}
   - component: {fileID: 8157286687569700756}
   - component: {fileID: 5071290510000105864}
-  - component: {fileID: 1418520626783257164}
-  m_Layer: 4
+  - component: {fileID: 7904404713899897718}
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1418520626783257164
+--- !u!114 &7904404713899897718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +149,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4372931730468238697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d510b4e7cc3485b4eb700645deb0ab08, type: 3}
+  m_Script: {fileID: 11500000, guid: 93266e0369cb970458344aca445acaf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile

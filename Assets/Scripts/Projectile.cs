@@ -11,10 +11,10 @@ public class Projectile : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Enemy>() != null)
-        {
-            collision.gameObject.GetComponent<Enemy>().BeenShot();
-        }
+        // if (collision.gameObject.GetComponent<Enemy>() != null)
+        // {
+        //     collision.gameObject.GetComponent<Enemy>().BeenShot();
+        // }
         rb.linearVelocity = Vector3.zero;
         rb.isKinematic = true;
         col.isTrigger = true;

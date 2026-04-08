@@ -12,10 +12,10 @@ public class WeaponSwitching : MonoBehaviour
     public WeaponBase weapon;
     public Transform firepoint;
     public GameObject projectilePrefab;
-    [SerializeField] TextMeshProUGUI text;
-    [SerializeField] TextMeshProUGUI healthText;
-    [SerializeField] TextMeshProUGUI ammoText;
-    [SerializeField] TextMeshProUGUI logText;
+    // [SerializeField] TextMeshProUGUI text;
+    // [SerializeField] TextMeshProUGUI healthText;
+    // [SerializeField] TextMeshProUGUI ammoText;
+    // [SerializeField] TextMeshProUGUI logText;
     int ammo = 10;
 
     int health = 0;
@@ -42,7 +42,7 @@ public class WeaponSwitching : MonoBehaviour
     void Start()
     {
         Debug.Log(firepoint);
-        logText.gameObject.SetActive(false);
+        //logText.gameObject.SetActive(false);
         weapon = new Gun(new RaycastBehavior());
         weapon.firePoint = firepoint;
         weapon.SetWeaponBehavior(new NoWeaponBehavior{});
@@ -50,9 +50,9 @@ public class WeaponSwitching : MonoBehaviour
 
     void Update()
     {
-        healthText.text = health.ToString();
-        text.text = curWeapon.ToString();
-        ammoText.text = ammo.ToString();
+        // healthText.text = health.ToString();
+        // text.text = curWeapon.ToString();
+        // ammoText.text = ammo.ToString();
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -167,7 +167,7 @@ public class WeaponSwitching : MonoBehaviour
 
             if (other.gameObject.GetComponent<Collectable>().pickUp == Collectable.PickUp.log)
             {
-                StartCoroutine(LogText());
+                //StartCoroutine(LogText());
                 Destroy(other.gameObject);
             }
             if (other.gameObject.GetComponent<Projectile>() != null)
@@ -176,12 +176,12 @@ public class WeaponSwitching : MonoBehaviour
             }
         }
     }
-    IEnumerator LogText()
-    {
-        logText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        logText.gameObject.SetActive(false);
-    }
+    // IEnumerator LogText()
+    // {
+    //     logText.gameObject.SetActive(true);
+    //     yield return new WaitForSeconds(2f);
+    //     logText.gameObject.SetActive(false);
+    // }
 }
 
 

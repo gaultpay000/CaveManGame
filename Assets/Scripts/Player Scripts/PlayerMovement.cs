@@ -1,7 +1,6 @@
 using System.Collections;
 using JetBrains.Annotations;
 using NUnit.Framework;
-using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public float verticalClamp = 90f;
     public GameObject cameraHolder;
     public GameObject clubPos;
-
-    int health = 0;
 
     [Header("Movement Settings")]
     public float speed;

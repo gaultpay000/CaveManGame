@@ -1,21 +1,18 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class Club : MonoBehaviour
 {
     [SerializeField]PlayerMovement player;
-    public bool isLaunchable = false;
+    bool isLaunchable = false;
     [SerializeField]bool coroutineIsRunning = false;
     [SerializeField]float timeToRun;
-    
 
-    WeaponSwitching weaponSwitching;
+    [SerializeField]WeaponSwitching weaponSwitching;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        weaponSwitching = GetComponent<WeaponSwitching>();
     }
 
     // Update is called once per frame
@@ -26,24 +23,22 @@ public class Club : MonoBehaviour
         if (weaponSwitching.weaponCurrent != 1)
             return;
         transform.position = player.clubPos.transform.position;
-        
-        if (Input.GetMouseButton(0) && isLaunchable)
-        {
-            Launch();
-        }
+        Launch();
     }
 
     public void Launch()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        timeToRun = Time.time;
-        player.rb.linearDamping = 1;
-        //player.isMovingUp = true;
-
-        if (!coroutineIsRunning)
+        if (Input.GetMouseButton(0) && isLaunchable)
         {
-            player.isMovingUp = true;
-            StartCoroutine(ClubSmoother(timeToRun, direction));
+            Vector3 direction = player.transform.position - transform.position;
+            timeToRun = Time.time;
+            player.rb.linearDamping = 1;
+            //player.isMovingUp = true;
+
+            if (!coroutineIsRunning)
+            {
+                StartCoroutine(ClubSmoother(timeToRun, direction));
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -58,9 +53,9 @@ public class Club : MonoBehaviour
     IEnumerator ClubSmoother(float timer, Vector3 direction)
     {
         coroutineIsRunning = true;
-        while (timer > Time.time - 1)
+        while (timer > Time.time - 2)
         {
-            player.rb.AddForce(direction * 10, ForceMode.Impulse);
+            player.rb.AddForce(direction * 25, ForceMode.Impulse);
             yield return new WaitForSeconds(.1f);
         }
         coroutineIsRunning = false;
