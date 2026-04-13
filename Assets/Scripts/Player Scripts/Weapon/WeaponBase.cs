@@ -15,7 +15,7 @@ public abstract class WeaponBase
     {
         if (weaponBehavior != null)
         {
-            //weaponBehavior.Fire(firePoint);
+            weaponBehavior.Fire(firePoint);
         }
         else Debug.LogError("No weapon behavior");
     }

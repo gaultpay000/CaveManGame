@@ -9,7 +9,7 @@ namespace AICore
     public class AIAgentBase : MonoBehaviour
     {
         [SerializeField, Range(0f, 360f)] protected float _fov = 60f;
-        [SerializeField, Range(0f, 1f)] protected float _sightRange = 1f; //0-100% sphere col.
+        [SerializeField, Range(0f, 1f)] public float _sightRange = 1f; //0-100% sphere col.
 
         [SerializeField] protected AISensor _sensor;
 
@@ -56,6 +56,14 @@ namespace AICore
             }
         }
 
+        enum EnemyStates
+        {
+            Wander,
+            Search,
+            Attack
+        }
+        EnemyStates curState;
+
         protected virtual void Start()
         {
             _navAgent = GetComponent<NavMeshAgent>();
@@ -72,12 +80,13 @@ namespace AICore
             {
                 if (IsColliderVisible(other))
                 {
-                    Debug.Log("I see the player");
                     _visualTarget.Set(other.transform.position, other,
                         Vector3.Distance(transform.position, other.transform.position),
                         Time.time, TargetType.Visual);
+                    curState = EnemyStates.Attack;
                 }
             }
+            else curState = EnemyStates.Wander;
         }
 
         public void AssessTargets()
@@ -120,7 +129,6 @@ namespace AICore
             if (Physics.Raycast(GetSensorPosition, dir.normalized, out hit,
                 _sightRange * GetSensorRadius))
             {
-                Debug.Log(hit.collider);
                 if (hit.collider == other) return true;
             }
             dir = Vector3.zero;

@@ -10,12 +10,15 @@ namespace BehaviorTree
         [SerializeField] private Transform[] _waypoints;
 
         Dictionary<string, object> _blackboard;
+
+        Rigidbody rb;
         
         public Dictionary<string, object> GetBlackboard { get {  return _blackboard; } }
 
         protected override void Start()
         {
             base.Start();
+            rb = GetComponent<Rigidbody>();
 
             _blackboard = new Dictionary<string, object>();
             _blackboard.Add("Waypoints", _waypoints);
@@ -30,6 +33,9 @@ namespace BehaviorTree
 
         protected override void FixedUpdate()
         {
+
+            rb.linearVelocity = Vector3.zero;
+
             AssessTargets();
 
             if(btGraph != null && btGraph.RootNode != null)
@@ -38,6 +44,16 @@ namespace BehaviorTree
             }
 
             base.FixedUpdate(); //clear target stuff
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.GetComponent<PlayerMovement>() != null) 
+            {
+                StartCoroutine(FindAnyObjectByType<EnemyAnimationController>().Kick());
+                collision.gameObject.GetComponent<PlayerMovement>().playerHealth -= 20;
+            }
+            
         }
     }
 }

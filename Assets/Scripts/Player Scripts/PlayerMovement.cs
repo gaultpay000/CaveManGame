@@ -2,6 +2,7 @@ using System.Collections;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,20 +29,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float linearDampening;
     bool unmovingWASD;
 
+    int maxHealth = 100;
+    public int playerHealth;
+    [SerializeField] Slider healthSlider;
+
     //public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    { 
         //animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 3;
+        playerHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthSlider.value = playerHealth / maxHealth;
         
         velocity = rb.linearVelocity.magnitude;
         HandleMovement();

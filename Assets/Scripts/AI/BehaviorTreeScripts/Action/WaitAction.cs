@@ -9,6 +9,7 @@ namespace BehaviorTree
     {
         public Vector2 waitDuration;
         public WaitType waitType;
+        public EnemyAnimationController animController;
 
         float _value;
         float _startTime;
@@ -28,10 +29,15 @@ namespace BehaviorTree
             else _value = Random.Range(waitDuration.x, waitDuration.y);
             
             _startTime = Time.time;
+
+            animController = FindAnyObjectByType<EnemyAnimationController>();
+
+            animController.waiting = true;
         }
 
         protected override void OnStop()
         {
+            animController.waiting = false;
         }
 
         protected override State OnUpdate()

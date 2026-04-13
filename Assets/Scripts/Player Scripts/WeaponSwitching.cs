@@ -12,7 +12,7 @@ public class WeaponSwitching : MonoBehaviour
     public WeaponBase weapon;
     public Transform firepoint;
     public GameObject projectilePrefab;
-    // [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text;
     // [SerializeField] TextMeshProUGUI healthText;
     // [SerializeField] TextMeshProUGUI ammoText;
     // [SerializeField] TextMeshProUGUI logText;
@@ -41,7 +41,6 @@ public class WeaponSwitching : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(firepoint);
         //logText.gameObject.SetActive(false);
         weapon = new Gun(new RaycastBehavior());
         weapon.firePoint = firepoint;
@@ -51,7 +50,7 @@ public class WeaponSwitching : MonoBehaviour
     void Update()
     {
         // healthText.text = health.ToString();
-        // text.text = curWeapon.ToString();
+        text.text = curWeapon.ToString();
         // ammoText.text = ammo.ToString();
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -95,7 +94,6 @@ public class WeaponSwitching : MonoBehaviour
 
     void WeaponLogic()
     {
-        firepoint = transform;
         weapon.firePoint = firepoint;
             if (weaponInventory[weaponCurrent] == 0)
             {
