@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Weapon
+  - Health
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Weapon
   - Water
   - UI
-  - TriggerLayer
-  - 
+  - Player
+  - Medkit
   - 
   - 
   - 

@@ -32,12 +32,12 @@ namespace BehaviorTree
 
             animController = FindAnyObjectByType<EnemyAnimationController>();
 
-            animController.waiting = true;
+            
         }
 
         protected override void OnStop()
         {
-            animController.waiting = false;
+            
         }
 
         protected override State OnUpdate()

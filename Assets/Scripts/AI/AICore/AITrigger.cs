@@ -7,6 +7,7 @@ namespace AICore
     {
         [SerializeField] private AIAgentBase _agent;
         [SerializeField] private SphereCollider _collider;
+        [SerializeField]EnemyAnimationController controller;
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace AICore
             {
                 return;
             }
+            controller.SetIsWaiting = true;
 
             _agent.HasReachedDestination = true;
         }
@@ -44,6 +46,7 @@ namespace AICore
             {
                 return;
             }
+            controller.SetIsWaiting = true;
 
             _agent.HasReachedDestination = true;
         }
@@ -54,6 +57,7 @@ namespace AICore
             {
                 return;
             } 
+            controller.SetIsWaiting = false;
 
             _agent.HasReachedDestination = false;
         }
