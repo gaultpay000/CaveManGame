@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public int playerHealth = 100;
 
+    [SerializeField] float movez;
+    [SerializeField] float movex;
+
     float xRot, yRot;
 
     public bool isMovingUp;
@@ -46,12 +49,13 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleCamera();
         HandleJump();
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
 
         if (velocity <= .1f)
         {
             rb.linearVelocity = Vector3.zero;
         }
-        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
+        
 
         if (unmovingWASD && !isMovingUp)
         {
@@ -61,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        float movez = Input.GetAxis("Horizontal");
-        float movex = Input.GetAxis("Vertical");
+        movez = Input.GetAxis("Horizontal");
+        movex = Input.GetAxis("Vertical");
         
 
         Vector3 moveDir = new Vector3( movez, 0, movex);

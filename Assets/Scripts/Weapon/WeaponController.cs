@@ -20,14 +20,12 @@ public class WeaponController : MonoBehaviour
     {
         if (Keyboard.current[Key.Digit1].wasPressedThisFrame)
         {
-            Debug.Log("raycast");
             weapon.SetWeaponBehavior(new RaycastBehavior { range = 10 });
         }
 
         if (Keyboard.current[Key.Digit2].wasPressedThisFrame)
         {
-            Debug.Log("projectile");
-            weapon.SetWeaponBehavior(new ProjectileBehavior { projectilePrefab = projectilePrefab, projectileSpeed = 20});
+            weapon.SetWeaponBehavior(new ProjectileBehavior { projectilePrefab = projectilePrefab, projectileSpeed = 20, ammo = 10});
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)

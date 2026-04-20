@@ -11974,6 +11974,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8752865436587438967, guid: df1b4e0a599747d4fbcd813894d538b0, type: 3}
   m_PrefabInstance: {fileID: 607268700}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1306971966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/CycleWeapon
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: c2cd64e5323bd7f43941746c7b67e6b6, type: 3}
+  m_ActionId: ba73d9fe-ea42-450d-aa2d-80a1c8898cbb
 --- !u!1 &1311776830
 GameObject:
   m_ObjectHideFlags: 0
@@ -15300,7 +15314,7 @@ GameObject:
   - component: {fileID: 1576199077}
   m_Layer: 0
   m_Name: Player Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15924,6 +15938,7 @@ GameObject:
   - component: {fileID: 1671919445}
   - component: {fileID: 1671919444}
   - component: {fileID: 1671919448}
+  - component: {fileID: 1671919449}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15951,9 +15966,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.5064795
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.25323975, z: 0}
 --- !u!54 &1671919445
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16000,6 +16015,8 @@ MonoBehaviour:
   speed: 0
   jumpForce: 8
   playerHealth: 100
+  movez: 0
+  movex: 0
   isMovingUp: 0
   rb: {fileID: 0}
   maxVelocity: 30
@@ -16040,7 +16057,37 @@ MonoBehaviour:
       - m_Target: {fileID: 239894108}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: WeaponCycle
-        m_Mode: 1
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipClub:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 239894108}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipBow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 239894108}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16049,7 +16096,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  cycleWeaponAction: {fileID: 0}
+  EquipSpear:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 239894108}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  cycleWeaponAction: {fileID: 1306971966}
+--- !u!114 &1671919449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671919443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25172f12740c2d14b91fdbb46a75bdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSwitching
+  firepoint: {fileID: 899185772}
+  projectilePrefab: {fileID: 4372931730468238697, guid: dca3fff703795a94b905f0479d97c804, type: 3}
+  clubScript: {fileID: 1834845055}
+  weaponCurrent: 0
 --- !u!1001 &1691668506
 PrefabInstance:
   m_ObjectHideFlags: 0

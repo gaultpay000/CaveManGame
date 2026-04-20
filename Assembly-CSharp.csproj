@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B4F36313-C5BE-F145-1EBD-B76210807F15}</ProjectGuid>
+    <ProjectGuid>{9254F522-A227-B25D-A8BD-79099A4D1F48}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -70,10 +70,11 @@
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\HasReachedDestAction.cs" />
     <Compile Include="Assets\Synty\PolygonGeneric\Scripts\Generic_WaterBob.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\RootNode.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\InventoryHandler.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\DebugNode.cs" />
+    <Compile Include="Assets\Scripts\Base Scripts\Collectable.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\UIScripts\UIHandler.cs" />
     <Compile Include="Assets\Scripts\AI\AICore\Target.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Idamagable.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Enemy.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\BehaviorTreeGraph.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\TargetIsTypeAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\Base Scripts\WeaponSwitching.cs" />
     <Compile Include="Assets\Scripts\AI\AICore\AITrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\RaycastBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
@@ -100,11 +102,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\EnemyScriptableObjects\DefaultEnemyTemplate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\UIScripts\InventoryHandler.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\InventoryTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\SequencerNode.cs" />
+    <Compile Include="Assets\Scripts\Base Scripts\Projectile.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Assets\Scripts\Weapon\NoWeaponBehavior.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\SceneTrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileBehavior.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\UIHandler.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\BTBaseNode.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\BTCompositeNodeBase.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\CycleWeaponHandler.cs" />
@@ -1259,6 +1262,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.FilmInternalUtilities">
+      <HintPath>Library\ScriptAssemblies\Unity.FilmInternalUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1295,10 +1302,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.FilmInternalUtilities">
-      <HintPath>Library\ScriptAssemblies\Unity.FilmInternalUtilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1309,10 +1312,6 @@
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
@@ -1329,6 +1328,10 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
@@ -1458,11 +1461,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="XNodeEditor.csproj">
-      <Project>{2FA395FE-49E0-B4C1-52D4-E4C68CF0EB52}</Project>
+      <Project>{6D78286C-4FB9-9DC9-B622-6A6FFC541946}</Project>
       <Name>XNodeEditor</Name>
     </ProjectReference>
     <ProjectReference Include="XNode.csproj">
-      <Project>{D72B36AF-5316-FA61-1D7C-7F77D4D23F00}</Project>
+      <Project>{9746CCD8-9B07-F6EC-7761-F3591AC8EF20}</Project>
       <Name>XNode</Name>
     </ProjectReference>
   </ItemGroup>
