@@ -12,10 +12,11 @@ public class Projectile : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        // if (collision.gameObject.GetComponent<Enemy>() != null)
-        // {
-        //     collision.gameObject.GetComponent<Enemy>().BeenShot();
-        // }
+        Debug.Log(collision.gameObject);
+        if (collision.gameObject.GetComponentInChildren<Enemy>() != null)
+        {
+            collision.gameObject.GetComponentInChildren<Enemy>().TakeDamage(19);
+        }
         collectable = true;
         rb.linearVelocity = Vector3.zero;
         rb.isKinematic = true;
