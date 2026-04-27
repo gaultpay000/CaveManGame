@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //animator = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 2;
     }
@@ -78,16 +79,17 @@ public class PlayerMovement : MonoBehaviour
         else speed = 20;
 
             //transform.Translate(moveDir * speed * Time.deltaTime); 
-            rb.AddForce(moveDir.normalized * speed, ForceMode.Acceleration);
+            rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
 
         if (isMovingUp)
         {
             //rb.linearDamping = 2;
-            rb.AddForce(Vector3.down *3, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down *10, ForceMode.Acceleration);
         }
         else //rb.linearDamping = 3;
 
-        if (movez <= .01f && movex <= .01f)
+        if (movez <= .01f && movex <= .01f
+            && movez>= .01f && movex >= .01f)
             unmovingWASD = true;
         else 
             unmovingWASD = false;

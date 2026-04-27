@@ -6625,7 +6625,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &1206329319
 MonoBehaviour:
@@ -6644,12 +6644,14 @@ MonoBehaviour:
   cameraHolder: {fileID: 7631950}
   clubPos: {fileID: 1198372265}
   speed: 0
-  jumpForce: 8
+  jumpForce: 4
+  playerHealth: 100
+  movez: 0
+  movex: 0
   isMovingUp: 0
   rb: {fileID: 0}
   maxVelocity: 30
   velocity: 0
-  linearDampening: 5
 --- !u!4 &1206329320
 Transform:
   m_ObjectHideFlags: 0
@@ -6694,6 +6696,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  EquipClub:
+    m_PersistentCalls:
+      m_Calls: []
+  EquipBow:
+    m_PersistentCalls:
+      m_Calls: []
+  EquipSpear:
+    m_PersistentCalls:
+      m_Calls: []
   cycleWeaponAction: {fileID: 1540199629}
 --- !u!1 &1234949508
 GameObject:
