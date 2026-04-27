@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e223660da0e46045b8d526e7b377655, type: 3}
   m_Name: DefaultEnemy
   m_EditorClassIdentifier: Assembly-CSharp::DefaultEnemyTemplate
-  enemyHealth: 100
+  enemyHealth: 1
   enemyMaxHealth: 100
   enemyType: 0
   behaviorTree: {fileID: 0}

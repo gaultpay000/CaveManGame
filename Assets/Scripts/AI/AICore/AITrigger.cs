@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace AICore
@@ -8,6 +9,9 @@ namespace AICore
         [SerializeField] private AIAgentBase _agent;
         [SerializeField] private SphereCollider _collider;
         [SerializeField]EnemyAnimationController controller;
+        [SerializeField] Enemy enemy;
+
+        IEnumerator instance;
 
         private void Awake()
         {
@@ -37,6 +41,12 @@ namespace AICore
             }
             controller.SetIsWaiting = true;
 
+            if(enemy.health <= 20 && instance != enemy.Heal())
+            {
+                instance = enemy.Heal();
+                StartCoroutine(instance);
+            }
+
             _agent.HasReachedDestination = true;
         }
 
@@ -57,6 +67,12 @@ namespace AICore
             {
                 return;
             } 
+            if (instance == enemy.Heal())
+            {
+                StopCoroutine(instance);
+                instance = null;    
+            }
+
             controller.SetIsWaiting = false;
 
             _agent.HasReachedDestination = false;

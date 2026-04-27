@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public int playerHealth = 100;
 
+    [SerializeField] float movez;
+    [SerializeField] float movex;
+
     float xRot, yRot;
 
     public bool isMovingUp;
@@ -24,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     double jumpTimer;
 
     [SerializeField] float velocity;
-    [SerializeField] float linearDampening;
     bool unmovingWASD;
 
     //public Animator animator;
@@ -35,23 +38,24 @@ public class PlayerMovement : MonoBehaviour
         //animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
-        rb.linearDamping = 3;
+        rb.linearDamping = 2;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         velocity = rb.linearVelocity.magnitude;
         HandleMovement();
         HandleCamera();
         HandleJump();
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
 
         if (velocity <= .1f)
         {
-            rb.linearVelocity = Vector3.zero;
+            //rb.linearVelocity = Vector3.zero;
         }
-        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
+        
 
         if (unmovingWASD && !isMovingUp)
         {
@@ -61,26 +65,27 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        float movez = Input.GetAxis("Horizontal");
-        float movex = Input.GetAxis("Vertical");
+        movez = Input.GetAxis("Horizontal");
+        movex = Input.GetAxis("Vertical");
+
+        //movex = Keyboard.current.wKey.IsPressed();
         
 
         Vector3 moveDir = new Vector3( movez, 0, movex);
 
         if (Input.GetKey(KeyCode.LeftShift))
-            speed = 8;
-        else
-            speed = 4;
+            speed = 40;
+        else speed = 20;
 
-        //transform.Translate(moveDir * speed * Time.deltaTime); 
-        rb.AddForce(transform.TransformDirection(moveDir) * speed, ForceMode.Acceleration);
+            //transform.Translate(moveDir * speed * Time.deltaTime); 
+            rb.AddForce(moveDir.normalized * speed, ForceMode.Acceleration);
 
         if (isMovingUp)
         {
-            rb.linearDamping = 2;
+            //rb.linearDamping = 2;
             rb.AddForce(Vector3.down *3, ForceMode.Acceleration);
         }
-        else rb.linearDamping = 3;
+        else //rb.linearDamping = 3;
 
         if (movez <= .01f && movex <= .01f)
             unmovingWASD = true;
@@ -111,23 +116,25 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isMovingUp)
+        if (Keyboard.current.spaceKey.IsPressed() && !isMovingUp)
         {
             isMovingUp = true;
-            jumpTimer = Time.time + .1f;
+            jumpTimer = Time.time + .15f;
             StartCoroutine(JumpSmoother());
         }
     }
 
     IEnumerator JumpSmoother()
     {
-        while (Input.GetKey(KeyCode.Space) && isMovingUp && Time.time < jumpTimer)
+        while (/*Input.GetKey(KeyCode.Space) &&*/ isMovingUp && Time.time < jumpTimer
+            && Keyboard.current.spaceKey.IsPressed())
         {
             //transform.Translate(Vector3.up * .1f); for just moving the player up without physics
-            rb.AddForce(Vector3.up * 1.5f * jumpForce, ForceMode.Impulse);// physics based jump
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);// physics based jump
 
             yield return new WaitForSeconds(.1f);
         }
+        Debug.Log("jump timer ran out");
     }
 
     void OnCollisionEnter(Collision collision)
@@ -136,7 +143,17 @@ public class PlayerMovement : MonoBehaviour
         {
             //isMovingUp = false;
             //rb.linearVelocity = Vector3.zero;
-            rb.linearDamping = 3;
+            //rb.linearDamping = 3;
+            isMovingUp = false;
+        }
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && isMovingUp)
+        {
+            //isMovingUp = false;
+            //rb.linearVelocity = Vector3.zero;
+            //rb.linearDamping = 3;
             isMovingUp = false;
         }
     }

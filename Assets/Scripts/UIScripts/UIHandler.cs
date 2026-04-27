@@ -26,7 +26,7 @@ public class UIHandler : MonoBehaviour
         getHP = _curHP;
         OnChangeHealth(0);
         _curIndex = 0;
-        OnChangeWeapon(_inventory._weapons[_curIndex]);
+        OnChangeWeapon(_inventory._weapons[1]);
     }
 
     public void OnChangeHealth(float Change)
@@ -59,7 +59,7 @@ public class UIHandler : MonoBehaviour
         else if(curWeapon.name == "Spear EQUIP")
         {
             _isUsingBow = false;
-            _isUsingClub = true;
+            _isUsingClub = false;
             _isUsingSpear = true;
         }
 
@@ -70,18 +70,19 @@ public class UIHandler : MonoBehaviour
         _weaponDisplay.text = $"Current Weapon: {curWeapon.name}";
     }
 
-    public void WeaponCycle()
+    public void WeaponCycle(int currentWeapon)
     {
-        _curIndex++;
+        
+        //_curIndex++;
         if (_curIndex < _inventory._weapons.Length)
         {
-            OnChangeWeapon(_inventory._weapons[_curIndex]);
+            OnChangeWeapon(_inventory._weapons[currentWeapon]);
         }
-        else if (_curIndex >= _inventory._weapons.Length)
-        {
-            _curIndex = 0;
-            OnChangeWeapon(_inventory._weapons[_curIndex]);
-        }
+        //else if (_curIndex >= _inventory._weapons.Length)
+        //{
+        //    _curIndex = 0;
+        //    OnChangeWeapon(_inventory._weapons[_curIndex]);
+        //}
     }
 
     public void OnAudioLogGained(bool audioLogStatus)

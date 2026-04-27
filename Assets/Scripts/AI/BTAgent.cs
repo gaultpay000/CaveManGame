@@ -8,6 +8,8 @@ namespace BehaviorTree
     {
         [SerializeField] private BehaviorTreeGraph btGraph;
         [SerializeField] private Transform[] _waypoints;
+        [SerializeField] Transform[] hidingSpots;
+        Enemy enemy;
 
         Dictionary<string, object> _blackboard;
 
@@ -17,6 +19,7 @@ namespace BehaviorTree
 
         protected override void Start()
         {
+            enemy = GetComponentInChildren<Enemy>();
             base.Start();
             rb = GetComponent<Rigidbody>();
 
@@ -35,7 +38,18 @@ namespace BehaviorTree
         {
 
             rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
 
+            if (enemy.health <= 20)
+            {
+                Transform closestHidingSpot = FindHidingSpot();
+                SetTarget(closestHidingSpot.position, null, 
+                Vector3.Distance(transform.position, closestHidingSpot.position), 
+                Time.time, TargetType.Waypoint);
+                GetNavMeshAgent.SetDestination(closestHidingSpot.position);
+            }
+            else
+            {
             AssessTargets();
 
             if(btGraph != null && btGraph.RootNode != null)
@@ -44,6 +58,7 @@ namespace BehaviorTree
             }
 
             base.FixedUpdate(); //clear target stuff
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -54,6 +69,23 @@ namespace BehaviorTree
                 collision.gameObject.GetComponent<PlayerMovement>().playerHealth -= 20;
             }
             
+        }
+
+        Transform FindHidingSpot()
+        {
+            Transform bestSpot = null;
+            float bestDistance = Mathf.Infinity;
+            for (int i = 0; i < hidingSpots.Length; i++)
+            {
+                float curDistance = Vector3.Distance(transform.position, hidingSpots[i].position);
+
+                if(curDistance < bestDistance)
+                {
+                    bestDistance = curDistance;
+                    bestSpot = hidingSpots[i];
+                }
+            }
+            return bestSpot;
         }
     }
 }

@@ -22,8 +22,6 @@ public class ProjectileBehavior : IWeaponBehavior
         {
             rb.linearVelocity = firePoint.forward * projectileSpeed;
         }
-
-        Debug.Log("fire a Projectile");
         }
     }
 }

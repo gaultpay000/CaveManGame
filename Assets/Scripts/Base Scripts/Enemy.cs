@@ -4,8 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamagable
 {
     [SerializeField]DefaultEnemyTemplate enemyTemplate;
+    [SerializeField]GameObject fullEnemy;
 
-    int health;
+    public int health;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,10 +22,11 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakeDamage(int damage)
     {
         health -= damage;
-        StartCoroutine(FlashRed());
+        Debug.Log("damaged");
+        //StartCoroutine(FlashRed());
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(fullEnemy);
         }
     }
     IEnumerator FlashRed()
@@ -35,4 +37,13 @@ public class Enemy : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(0.7f);
         renderer.material.color = originalColor;
     }   
+
+    public IEnumerator Heal()
+    {
+        while (health < 30)
+        {
+            health++;
+            yield return new WaitForSeconds(.5f);
+        }
+    }
 }
