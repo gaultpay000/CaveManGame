@@ -23,7 +23,7 @@ public class Club : MonoBehaviour
 
     public void Launch()
     {
-        if (/*Input.GetMouseButton(0) &&*/ isLaunchable)
+        if (/*Input.GetMouseButton(0) &&*/ isLaunchable && !player.isMovingUp)
         {
             Vector3 direction = player.transform.position - transform.position;
             timeToRun = Time.time;
