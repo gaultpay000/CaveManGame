@@ -134,7 +134,7 @@ namespace AICore
             dir = Vector3.zero;
             return false;
         }
-
+        /*
         private void OnDrawGizmos()
         {
             if(_sensor == null) return;
@@ -147,5 +147,6 @@ namespace AICore
                 _fov, GetSensorRadius * _sightRange);
 
         }
+        */
     }
 }

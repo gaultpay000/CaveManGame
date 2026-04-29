@@ -191,9 +191,9 @@ public class WeaponSwitching : MonoBehaviour
 
     }
 }
-    // IEnumerator LogText()
-    // {
-    //     logText.gameObject.SetActive(true);
-    //     yield return new WaitForSeconds(2f);
-    //     logText.gameObject.SetActive(false);
-    // }
+// IEnumerator LogText()
+// {
+//     logText.gameObject.SetActive(true);
+//     yield return new WaitForSeconds(2f);
+//     logText.gameObject.SetActive(false);
+// }

@@ -27,17 +27,4 @@ public class CycleWeaponHandler : MonoBehaviour
     //{
     //    CycleWeapon.Invoke();
     //}
-
-    //void EquipingClub(InputAction.CallbackContext context) 
-    //{
-    //    EquipClub.Invoke();
-    //}
-    //void EquipingBow(InputAction.CallbackContext context)
-    //{
-    //    EquipBow.Invoke();
-    //}
-    //void EquipingSpear(InputAction.CallbackContext context)
-    //{
-    //    EquipSpear.Invoke();
-    //}
 }
