@@ -52,16 +52,18 @@ namespace BehaviorTree
 
         protected override State OnUpdate()
         {
-            if(!_owner.GetBlackboard.ContainsKey(waypointName) 
+            if (_owner.GetCurrTarget.GetTargetType != TargetType.Waypoint)
+            return State.Failure; 
+            
+            if (!_owner.GetBlackboard.ContainsKey(waypointName)
                 || !_owner.GetBlackboard.ContainsKey(waypointIndex))
                 return State.Failure;
-            
+
             Transform newPoint = waypoints[(int)_owner.GetBlackboard[waypointIndex]];
 
-            _owner.SetTarget(newPoint.position, null, 
-                Vector3.Distance(_owner.transform.position, newPoint.position), 
-                Time.time, TargetType.Waypoint);
-
+            _owner.SetTarget(newPoint.position, null,
+            Vector3.Distance(_owner.transform.position, newPoint.position),
+            Time.time, TargetType.Waypoint);
             return State.Success;
         }
 

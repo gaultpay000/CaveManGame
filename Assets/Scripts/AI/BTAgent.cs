@@ -1,12 +1,16 @@
 using UnityEngine;
 using AICore;
 using System.Collections.Generic;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace BehaviorTree
 {
     public class BTAgent : AIAgentBase
     {
         [SerializeField] private BehaviorTreeGraph btGraph;
+        //[SerializeField] BehaviorTreeGraph attackGraph;
+        //[SerializeField] BehaviorTreeGraph wanderGraph;
+
         [SerializeField] private Transform[] _waypoints;
         [SerializeField] Transform[] hidingSpots;
         Enemy enemy;
@@ -29,9 +33,10 @@ namespace BehaviorTree
 
             if (btGraph != null)
             {
-                btGraph = btGraph.Copy() as BehaviorTreeGraph; 
+                btGraph = btGraph.Copy() as BehaviorTreeGraph;
                 btGraph.InitBehaviorTree(this);
             }
+            InitWaypoint();
         }
 
         protected override void FixedUpdate()
@@ -39,6 +44,7 @@ namespace BehaviorTree
 
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            //SwitchTree();
 
             if (enemy.health <= 20)
             {
@@ -86,6 +92,27 @@ namespace BehaviorTree
                 }
             }
             return bestSpot;
+        }
+
+        //void SwitchTree()
+        //{
+        //    if (curState == AIAgentBase.EnemyStates.Attack)
+        //    {
+        //        attackGraph = attackGraph.Copy() as BehaviorTreeGraph;
+        //        attackGraph.InitBehaviorTree(this);
+        //    }
+        //    else
+        //    {
+        //        wanderGraph = wanderGraph.Copy() as BehaviorTreeGraph;
+        //        wanderGraph.InitBehaviorTree(this);
+        //    }
+        //}
+
+        void InitWaypoint()
+        {
+            SetTarget(_waypoints[0].position, null,
+            Vector3.Distance(transform.position, _waypoints[0].position),
+            Time.time, TargetType.Waypoint);
         }
     }
 }

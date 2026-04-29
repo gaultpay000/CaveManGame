@@ -7176,6 +7176,7 @@ MonoBehaviour:
   _visualTarget:
     _targetType: 0
   _trigger: {fileID: 1588365375}
+  curState: 0
   btGraph: {fileID: 11400000, guid: aa13046227a7c474db2aaa14d2251b16, type: 2}
   _waypoints:
   - {fileID: 229624559}
@@ -20387,6 +20388,10 @@ PrefabInstance:
     - target: {fileID: 1262070438904459769, guid: c1d9899e3a312034ea2f4b29f20e51eb, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770097878438243928, guid: c1d9899e3a312034ea2f4b29f20e51eb, type: 3}
+      propertyPath: mouseSensativity
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7524881711558771913, guid: c1d9899e3a312034ea2f4b29f20e51eb, type: 3}
       propertyPath: m_LocalPosition.x

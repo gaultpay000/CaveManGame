@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace AICore
 {
@@ -56,13 +57,13 @@ namespace AICore
             }
         }
 
-        enum EnemyStates
+        public enum EnemyStates
         {
             Wander,
             Search,
             Attack
         }
-        EnemyStates curState;
+        public EnemyStates curState;
 
         protected virtual void Start()
         {
@@ -93,6 +94,7 @@ namespace AICore
         {
             if (_visualTarget != null && _visualTarget.GetTargetType == TargetType.Visual)
             {
+                Debug.Log("going to waypoiunt");
                 SetTarget(_visualTarget.GetPosition, _visualTarget.GetCollider,
                     _visualTarget.Distance, _visualTarget.GetTime, _visualTarget.GetTargetType);
             }
