@@ -42925,6 +42925,7 @@ GameObject:
   - component: {fileID: 1206329319}
   - component: {fileID: 1206329318}
   - component: {fileID: 1206329321}
+  - component: {fileID: 1206329324}
   - component: {fileID: 1206329322}
   - component: {fileID: 1206329323}
   m_Layer: 0
@@ -43020,7 +43021,37 @@ MonoBehaviour:
       - m_Target: {fileID: 1234949513}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: WeaponCycle
-        m_Mode: 1
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipClub:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipBow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -43029,15 +43060,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  EquipClub:
-    m_PersistentCalls:
-      m_Calls: []
-  EquipBow:
-    m_PersistentCalls:
-      m_Calls: []
   EquipSpear:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cycleWeaponAction: {fileID: 1540199629}
 --- !u!114 &1206329322
 MonoBehaviour:
@@ -43077,6 +43114,22 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1206329324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206329317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907f9ec449c33fa4fb63e14f2a04d45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSwitching
+  firepoint: {fileID: 7631951}
+  projectilePrefab: {fileID: 4372931730468238697, guid: dca3fff703795a94b905f0479d97c804, type: 3}
+  clubScript: {fileID: 1577611295}
+  weaponCurrent: 0
 --- !u!1 &1227859349
 GameObject:
   m_ObjectHideFlags: 0

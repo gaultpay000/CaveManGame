@@ -598,11 +598,6 @@ MonoBehaviour:
   player: {fileID: 15315893}
   coroutineIsRunning: 0
   timeToRun: 0
---- !u!1 &26915764 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5acf9e20b2195294d9851816662dd3be, type: 3}
-  m_PrefabInstance: {fileID: 1077416248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &42921202
 GameObject:
   m_ObjectHideFlags: 0
@@ -8564,11 +8559,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45f183ef0dde1145826516e0ed3de22, type: 3}
---- !u!1 &245004408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2f7dad6f15446846b4a75f71ae53bb2, type: 3}
-  m_PrefabInstance: {fileID: 277522274}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &277522274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15917,7 +15907,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 811133746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4032a884e44744983a02c3adadd5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c0c92beefec8c4bb9becd6616f69ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIHandler
   _inventory: {fileID: 811133754}
@@ -15930,9 +15920,9 @@ MonoBehaviour:
   _isUsingClub: 1
   _isUsingSpear: 0
   _audioLogCollected: 0
-  _clubEquip: {fileID: 26915764}
-  _bowEquip: {fileID: 245004408}
-  _spearEquip: {fileID: 1746144688}
+  _clubEquip: {fileID: 1371902162}
+  _bowEquip: {fileID: 1887284319}
+  _spearEquip: {fileID: 1899893198}
   _audioLogText: {fileID: 0}
 --- !u!114 &811133754
 MonoBehaviour:
@@ -15943,14 +15933,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 811133746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6cf2ab56c1418343b5dc5ea54c916c4, type: 3}
+  m_Script: {fileID: 11500000, guid: a6f2473d0b17d3a40a84416a0b5ab63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryHandler
   _inventory: []
   _weapons:
-  - {fileID: 245004408}
-  - {fileID: 1746144688}
-  - {fileID: 26915764}
+  - {fileID: 1887284319}
+  - {fileID: 1899893198}
+  - {fileID: 1371902162}
   CurrentWeaponDisplay: {fileID: 434659874}
   _uiHandler: {fileID: 811133753}
 --- !u!43 &812207907
@@ -31469,6 +31459,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 912140758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.97}
+--- !u!1 &1371902162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5acf9e20b2195294d9851816662dd3be, type: 3}
+  m_PrefabInstance: {fileID: 1077416248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1372210815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34735,11 +34730,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &1746144688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 04e3b93cb39844341a4bc3dc0cd79d6a, type: 3}
-  m_PrefabInstance: {fileID: 1693744133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1746650829
 GameObject:
   m_ObjectHideFlags: 0
@@ -39506,6 +39496,16 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b45f183ef0dde1145826516e0ed3de22, type: 3}
   m_PrefabInstance: {fileID: 852718006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1887284319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2f7dad6f15446846b4a75f71ae53bb2, type: 3}
+  m_PrefabInstance: {fileID: 277522274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1899893198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 04e3b93cb39844341a4bc3dc0cd79d6a, type: 3}
+  m_PrefabInstance: {fileID: 1693744133}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1903006563
 GameObject:

@@ -5893,6 +5893,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &844729190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2f7dad6f15446846b4a75f71ae53bb2, type: 3}
+  m_PrefabInstance: {fileID: 353324457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &933119472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6081,6 +6086,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981258528}
   m_CullTransparentMesh: 1
+--- !u!1 &989826283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5acf9e20b2195294d9851816662dd3be, type: 3}
+  m_PrefabInstance: {fileID: 1632013660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &992328672
 Mesh:
   m_ObjectHideFlags: 0
@@ -6505,6 +6515,7 @@ GameObject:
   - component: {fileID: 1206329319}
   - component: {fileID: 1206329318}
   - component: {fileID: 1206329321}
+  - component: {fileID: 1206329322}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6598,7 +6609,37 @@ MonoBehaviour:
       - m_Target: {fileID: 1234949513}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: WeaponCycle
-        m_Mode: 1
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipClub:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EquipBow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6607,16 +6648,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  EquipClub:
-    m_PersistentCalls:
-      m_Calls: []
-  EquipBow:
-    m_PersistentCalls:
-      m_Calls: []
   EquipSpear:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1234949513}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: WeaponCycle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cycleWeaponAction: {fileID: 1540199629}
+--- !u!114 &1206329322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206329317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907f9ec449c33fa4fb63e14f2a04d45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSwitching
+  firepoint: {fileID: 7631951}
+  projectilePrefab: {fileID: 4372931730468238697, guid: dca3fff703795a94b905f0479d97c804, type: 3}
+  clubScript: {fileID: 1577611295}
+  weaponCurrent: 0
 --- !u!1 &1234949508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,7 +6730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -6735,6 +6798,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0c92beefec8c4bb9becd6616f69ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIHandler
+  _inventory: {fileID: 1234949514}
+  _weaponDisplay: {fileID: 1459307793}
+  _curHP: 100
+  _maxHP: 100
+  _healthSlider: {fileID: 1645860971}
+  _arrowTrackers: {fileID: 468618006}
+  _isUsingBow: 0
+  _isUsingClub: 1
+  _isUsingSpear: 0
+  _audioLogCollected: 0
+  _clubEquip: {fileID: 989826283}
+  _bowEquip: {fileID: 844729190}
+  _spearEquip: {fileID: 1339283660}
+  _audioLogText: {fileID: 0}
 --- !u!114 &1234949514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6747,6 +6824,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f2473d0b17d3a40a84416a0b5ab63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryHandler
+  _inventory: []
+  _weapons:
+  - {fileID: 844729190}
+  - {fileID: 1339283660}
+  - {fileID: 989826283}
+  CurrentWeaponDisplay: {fileID: 1459307793}
+  _uiHandler: {fileID: 1234949513}
 --- !u!1 &1327781355
 GameObject:
   m_ObjectHideFlags: 0
@@ -8466,6 +8550,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1339283660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 04e3b93cb39844341a4bc3dc0cd79d6a, type: 3}
+  m_PrefabInstance: {fileID: 933119472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1373974352
 Mesh:
   m_ObjectHideFlags: 0
