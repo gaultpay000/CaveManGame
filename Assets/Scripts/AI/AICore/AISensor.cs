@@ -51,6 +51,7 @@ namespace AICore
         {
             if (_agent == null) { return; }
 
+            _agent.GetCurState = AIAgentBase.EnemyStates.Wander;
             _agent.OnSensorEvent(TriggerEventType.Exit, other);
         }
     }

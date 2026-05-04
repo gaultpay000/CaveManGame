@@ -16,6 +16,8 @@ namespace AICore
         [SerializeField] protected Target _curTarget = new Target();
         [SerializeField] protected Target _visualTarget = new Target();
 
+        bool characterVisible = false;
+
         protected NavMeshAgent _navAgent;
         protected bool _hasReachedDestination = false;
 
@@ -56,13 +58,15 @@ namespace AICore
             }
         }
 
-        enum EnemyStates
+        public enum EnemyStates
         {
             Wander,
             Search,
             Attack
         }
-        EnemyStates curState;
+        EnemyStates curState = EnemyStates.Wander;
+
+        public EnemyStates GetCurState { get { return curState; } set { curState = value; } }
 
         protected virtual void Start()
         {
@@ -85,26 +89,35 @@ namespace AICore
                         Time.time, TargetType.Visual);
                     curState = EnemyStates.Attack;
                 }
+                //else curState = EnemyStates.Wander;
             }
-            else curState = EnemyStates.Wander;
+            
         }
 
         public void AssessTargets()
         {
-            if (_visualTarget != null && _visualTarget.GetTargetType == TargetType.Visual)
+            //if (_visualTarget != null && _visualTarget.GetTargetType == TargetType.Visual)
+            if (curState == EnemyStates.Attack)
             {
                 SetTarget(_visualTarget.GetPosition, _visualTarget.GetCollider,
                     _visualTarget.Distance, _visualTarget.GetTime, _visualTarget.GetTargetType);
             }
-            else if (_curTarget.GetTargetType != TargetType.Waypoint) 
-            { 
-                _curTarget.Clear();
+            else if(_visualTarget.Distance < .5 && characterVisible)
+            {
+                curState = EnemyStates.Wander;
             }
+            else if (/*_curTarget.GetTargetType != TargetType.Waypoint &&*/ curState == EnemyStates.Wander)
+            {
+                if (_curTarget.GetTargetType != TargetType.Waypoint)
+                    _curTarget.Clear();
+            }
+            //Debug.Log(HasReachedDestination);
         }
 
         protected virtual void FixedUpdate()
         {
             ClearTargets();
+            
         }
 
         protected void ClearTargets()
@@ -123,16 +136,16 @@ namespace AICore
             Vector3 dir = other.transform.position - GetSensorPosition;
             float angle = Vector3.Angle(transform.forward, dir);
 
-            if (angle > _fov * 0.5f) return false; //outside fov
+            if (angle > _fov * 0.5f) { characterVisible = false; return false; } //outside fov
 
             RaycastHit hit;
             if (Physics.Raycast(GetSensorPosition, dir.normalized, out hit,
                 _sightRange * GetSensorRadius))
             {
-                if (hit.collider == other) return true;
+                if (hit.collider == other) characterVisible = true; return true;
             }
             dir = Vector3.zero;
-            return false;
+            characterVisible = false; return false;
         }
 
         private void OnDrawGizmos()

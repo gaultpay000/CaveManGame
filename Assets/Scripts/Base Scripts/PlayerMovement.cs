@@ -136,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
 
             yield return new WaitForSeconds(.1f);
         }
-        Debug.Log("jump timer ran out");
     }
 
     void OnCollisionEnter(Collision collision)

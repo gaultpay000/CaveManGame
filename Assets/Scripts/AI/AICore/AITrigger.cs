@@ -66,7 +66,7 @@ namespace AICore
             if (_agent == null || other.transform != _agent.transform)
             {
                 return;
-            } 
+            }
             if (instance == enemy.Heal())
             {
                 StopCoroutine(instance);

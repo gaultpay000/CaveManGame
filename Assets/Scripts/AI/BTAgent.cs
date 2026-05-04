@@ -57,7 +57,7 @@ namespace BehaviorTree
                 btGraph.Update();
             }
 
-            base.FixedUpdate(); //clear target stuff
+            //base.FixedUpdate(); //clear target stuff
             }
         }
 
