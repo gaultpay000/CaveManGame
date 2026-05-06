@@ -69,6 +69,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\HasReachedDestAction.cs" />
     <Compile Include="Assets\Synty\PolygonGeneric\Scripts\Generic_WaterBob.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\GUIDObject.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\RootNode.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InventoryHandler.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\DebugNode.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\AudioLogCollector.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Fallaway.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\GameData2.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\HealthpackLogic.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\BTDecoratorNodeBase.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\BehaviorTreeGraph.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\Scripts\AI\AICore\AITrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\RaycastBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\Json2Example.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Reset.cs" />
     <Compile Include="Assets\Scripts\Weapon\IWeaponBehavior.cs" />
@@ -127,11 +130,13 @@
     <Compile Include="Assets\Scripts\Base Scripts\Club.cs" />
     <Compile Include="Assets\Scripts\AI\AICore\AISensor.cs" />
     <Compile Include="Assets\Scripts\Weapon\MeleeBehavior.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\GUIDRegistry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\RepeatNode.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\StayInRangeAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\SaveLoadBase.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\BTActionNodeBase.cs" />
     <Compile Include="Assets\Scripts\AI\BTAgent.cs" />
@@ -139,6 +144,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Weapon\NoWeaponBehavior.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\LoadPlayer.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\SceneTrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\ProjectileBehavior.cs" />
     <Compile Include="Assets\Scripts\UIScripts\UIHandler.cs" />
