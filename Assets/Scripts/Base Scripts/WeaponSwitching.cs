@@ -56,7 +56,7 @@ public class WeaponSwitching : MonoBehaviour
         // text.text = curWeapon.ToString();
         // ammoText.text = ammo.ToString();
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             if (ammo == 0 && curWeapon == CurWeapon.instantiate)
                 return;
