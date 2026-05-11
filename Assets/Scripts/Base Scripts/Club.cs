@@ -21,22 +21,22 @@ public class Club : MonoBehaviour
         //Launch();
     }
 
-    public void Launch()
+  public void Launch()
+  {
+    if (/*Input.GetMouseButton(0) &&*/ isLaunchable && !player.isMovingUp)
     {
-        if (Input.GetMouseButton(0) && isLaunchable && player.isMovingUp)
-        {
-            Vector3 direction = player.transform.position - transform.position;
-            timeToRun = Time.time;
-            player.rb.linearDamping = 1;
-            //player.isMovingUp = true;
+      Vector3 direction = player.transform.position - transform.position;
+      timeToRun = Time.time;
+      player.rb.linearDamping = 1;
+      //player.isMovingUp = true;
 
-            if (!coroutineIsRunning)
-            {
-                StartCoroutine(ClubSmoother(timeToRun, direction));
-            }
-        }
+      if (!coroutineIsRunning)
+      {
+        StartCoroutine(ClubSmoother(timeToRun, direction));
+      }
     }
-    private void OnTriggerExit(Collider other)
+  }
+  private void OnTriggerExit(Collider other)
     {
         isLaunchable = false;
     }
