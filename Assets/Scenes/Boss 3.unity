@@ -41534,6 +41534,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4372931730468238697, guid: dca3fff703795a94b905f0479d97c804, type: 3}
   clubScript: {fileID: 1577611295}
   weaponCurrent: 0
+  curWeapon: 0
 --- !u!1 &1227859349
 GameObject:
   m_ObjectHideFlags: 0
@@ -41715,9 +41716,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryHandler
   _inventory: []
   _weapons:
-  - {fileID: 1632013662}
   - {fileID: 353324459}
   - {fileID: 933119474}
+  - {fileID: 1632013662}
   CurrentWeaponDisplay: {fileID: 1459307793}
   _uiHandler: {fileID: 1234949513}
 --- !u!1 &1245699637

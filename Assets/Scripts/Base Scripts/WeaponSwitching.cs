@@ -39,7 +39,7 @@ public class WeaponSwitching : MonoBehaviour
         instantiate
     }
 
-    CurWeapon curWeapon;
+    [SerializeField]CurWeapon curWeapon;
 
     void Start()
     {
