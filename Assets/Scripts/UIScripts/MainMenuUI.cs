@@ -12,7 +12,7 @@ public class MainMenuUI : MonoBehaviour
 
   public void NewGame()
   {
-    SceneManager.LoadScene("Grugs Village");
+    SceneManager.LoadScene("Controls");
   }
 
   public void LoadGame()
