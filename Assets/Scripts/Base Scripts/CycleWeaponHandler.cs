@@ -13,6 +13,7 @@ public class CycleWeaponHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("switching weapon");
         cycleWeaponAction.action.Enable();
         //cycleWeaponAction.action.performed += OnCycleWeapon;
     }
@@ -26,18 +27,5 @@ public class CycleWeaponHandler : MonoBehaviour
     //private void OnCycleWeapon(InputAction.CallbackContext context)
     //{
     //    CycleWeapon.Invoke();
-    //}
-
-    //void EquipingClub(InputAction.CallbackContext context) 
-    //{
-    //    EquipClub.Invoke();
-    //}
-    //void EquipingBow(InputAction.CallbackContext context)
-    //{
-    //    EquipBow.Invoke();
-    //}
-    //void EquipingSpear(InputAction.CallbackContext context)
-    //{
-    //    EquipSpear.Invoke();
     //}
 }

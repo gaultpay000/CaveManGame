@@ -17,5 +17,6 @@ public abstract class WeaponBase
         {
             weaponBehavior.Fire(firePoint);
         }
+        else Debug.LogError("No weapon behavior");
     }
 }

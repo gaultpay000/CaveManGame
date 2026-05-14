@@ -41,7 +41,7 @@ public class WeaponSwitching : MonoBehaviour
         instantiate
     }
 
-    CurWeapon curWeapon;
+    [SerializeField]CurWeapon curWeapon;
 
     void Start()
     {
@@ -193,9 +193,9 @@ public class WeaponSwitching : MonoBehaviour
 
     }
 }
-    // IEnumerator LogText()
-    // {
-    //     logText.gameObject.SetActive(true);
-    //     yield return new WaitForSeconds(2f);
-    //     logText.gameObject.SetActive(false);
-    // }
+// IEnumerator LogText()
+// {
+//     logText.gameObject.SetActive(true);
+//     yield return new WaitForSeconds(2f);
+//     logText.gameObject.SetActive(false);
+// }

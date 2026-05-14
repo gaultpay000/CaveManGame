@@ -8,6 +8,8 @@ public class MeleeBehavior : IWeaponBehavior
 
     public void Fire(Transform firePoint)
     {
+        Debug.Log("theres no weapon to use");
+
         club.Launch();
     }
 }

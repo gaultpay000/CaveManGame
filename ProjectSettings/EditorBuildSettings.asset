@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 64acb351bed90264ab3c0e7b2605a5ef
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 31df5415536805d4d983a327b2ddb7cb
+  - enabled: 1
     path: Assets/Scenes/Grugs Village.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -16,7 +22,13 @@ EditorBuildSettings:
     guid: 5ea704f31f1870d46bbe875afc5186d4
   - enabled: 1
     path: Assets/Scenes/Boss 2.unity
-    guid: 95bcbaf02f9aa6a45b9ee6a7db5aa37c
+    guid: f396bf5129fef344c82e5208c2c74a3a
+  - enabled: 1
+    path: Assets/Scenes/Research Facility.unity
+    guid: 6f729478b7167bc41bb47ceb61c25cc4
+  - enabled: 1
+    path: Assets/Scenes/Boss 3.unity
+    guid: 9bd40c838debe834fbbdce228ed92700
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 7d36a66648121984aa5375b41153c4f8

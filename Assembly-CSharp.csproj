@@ -52,6 +52,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponBase.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\Audio Scripts\AudioSettings.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\AttackAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\HasReachedDestAction.cs" />
@@ -61,8 +62,10 @@
     <Compile Include="Assets\Scripts\UIScripts\InventoryHandler.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\DebugNode.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Collectable.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\MainMenuUI.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Collect\PlayerKeys.cs" />
     <Compile Include="Assets\Scripts\AI\AICore\Target.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Idamagable.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Enemy.cs" />
@@ -96,8 +99,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\InventoryTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Scripts\Collect\KeyPickup.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\SequencerNode.cs" />
+    <Compile Include="Assets\Scripts\Collect\KeyPad.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\Projectile.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -110,6 +115,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\EnemyAnimationController.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\UISFX.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\InverterNode.cs" />
     <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
@@ -122,15 +128,19 @@
     <Compile Include="Assets\Scripts\SaveLoad\GUIDRegistry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scripts\Collect\KeyUI.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\RepeatNode.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\StayInRangeAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\SaveLoad\SaveLoadBase.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\Ambush Behavior.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\BTActionNodeBase.cs" />
+    <Compile Include="Assets\Scripts\Audio Scripts\VolumeSlider.cs" />
     <Compile Include="Assets\Scripts\AI\BTAgent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Scripts\Barrel - Copy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Weapon\NoWeaponBehavior.cs" />
     <Compile Include="Assets\Scripts\SaveLoad\LoadPlayer.cs" />
@@ -143,6 +153,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\WaitAction.cs" />
     <Compile Include="Assets\Scripts\Base Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Collect\ForceField.cs" />
     <Compile Include="Assets\Scripts\AI\BehaviorTreeScripts\Action\SetNextWaypointAction.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +170,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\VoodooPlay\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
