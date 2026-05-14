@@ -9,10 +9,10 @@ public class Json2Example : MonoBehaviour
     Transform playerPos;
     private void Update()
     {
-        playerPos = FindAnyObjectByType<PlayerMovement>().transform;
         //if (Input.GetKeyDown(KeyCode.S))
         if(Keyboard.current.yKey.wasPressedThisFrame)
         {
+            playerPos = FindAnyObjectByType<PlayerMovement>().transform;
             GUIDRegistry.SetWeapons(weaponSwitching.WEAPON_INVENTORY.ToArray());
             GUIDRegistry.Register("spawnPos", playerPos);
             SaveLoadBase.Save("Example", new GameData2());
