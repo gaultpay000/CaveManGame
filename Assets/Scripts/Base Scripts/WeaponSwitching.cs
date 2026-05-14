@@ -31,6 +31,8 @@ public class WeaponSwitching : MonoBehaviour
 
     List<int> weaponInventory = new List<int>() { 0, 1, 2 };
 
+    public List<int> WEAPON_INVENTORY { get { return weaponInventory; } }
+
     enum CurWeapon
     {
         none,
