@@ -18,7 +18,8 @@ public class MainMenuUI : MonoBehaviour
 
   public void LoadGame()
   {
-    load.InstantiatePlayer();
+    load = FindAnyObjectByType<LoadPlayer>();
+    load.LoadSave();
   }
 
   public void OpenSettings()

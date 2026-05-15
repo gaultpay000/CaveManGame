@@ -8461,6 +8461,7 @@ MonoBehaviour:
   pausePanel: {fileID: 571048220}
   settingsPanel: {fileID: 181789436}
   playerLook: {fileID: 1206329319}
+  load: {fileID: 0}
 --- !u!4 &291718067
 Transform:
   m_ObjectHideFlags: 0
@@ -44033,52 +44034,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1255777509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1255777511}
-  - component: {fileID: 1255777510}
-  m_Layer: 0
-  m_Name: LoadObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1255777510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255777509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3049f61b2d855434fac220112068386b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LoadPlayer
-  player: {fileID: 1262070438904459769, guid: c1d9899e3a312034ea2f4b29f20e51eb, type: 3}
-  pause: {fileID: 291718066}
---- !u!4 &1255777511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255777509}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 443.64832, y: 161.16606, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1261998213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71137,4 +71092,3 @@ SceneRoots:
   - {fileID: 1528106778}
   - {fileID: 291718067}
   - {fileID: 112055921}
-  - {fileID: 1255777511}

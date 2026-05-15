@@ -73,7 +73,9 @@ public class PauseMenuUI : MonoBehaviour
 
   public void LoadGame()
   {
-    load.InstantiatePlayer();
+    Debug.Log("loading");
+    load = FindAnyObjectByType<LoadPlayer>();
+    load.LoadSave();
   }
 
   public void BackToMainMenu()
