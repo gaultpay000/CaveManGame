@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 3;
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -131,6 +134,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && isMovingUp)
+        {
+            //isMovingUp = false;
+            //rb.linearVelocity = Vector3.zero;
+            rb.linearDamping = 3;
+            isMovingUp = false;
+        }
+    }
+    void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground") && isMovingUp)
         {

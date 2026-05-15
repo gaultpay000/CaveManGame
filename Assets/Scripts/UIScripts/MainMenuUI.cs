@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuUI : MonoBehaviour
 {
   [SerializeField] private GameObject settingsPanel;
+  [SerializeField] LoadPlayer load;
 
   private void Start()
   {
@@ -17,7 +18,8 @@ public class MainMenuUI : MonoBehaviour
 
   public void LoadGame()
   {
-    Debug.Log("Needs Added");
+    load = FindAnyObjectByType<LoadPlayer>();
+    load.LoadSave();
   }
 
   public void OpenSettings()

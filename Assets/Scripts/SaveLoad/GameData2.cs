@@ -13,6 +13,9 @@ public class GameData2
     public int[] weapons = new int[3];
     public int[] GET_WEAPONS {  get { return weapons; } }
 
+    public int scene = new int();
+    public int SCENE { get { return scene; } }
+
     public GameData2()
     {
         foreach (KeyValuePair<string, Transform> token in GUIDRegistry.GetRegistry)
@@ -20,6 +23,7 @@ public class GameData2
             _guidObjects.Add(new GUIDObjectToken(token.Key, token.Value));
         }
         GUIDRegistry.GetWeapons(weapons);
+        scene = GUIDRegistry.GetScene(scene);
     }
 
     public void LoadData()

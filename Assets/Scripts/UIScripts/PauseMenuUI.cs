@@ -6,6 +6,7 @@ public class PauseMenuUI : MonoBehaviour
   [SerializeField] private GameObject pausePanel;
   [SerializeField] private GameObject settingsPanel;
   [SerializeField] private MonoBehaviour playerLook;
+  [SerializeField] LoadPlayer load;
 
   private bool isPaused = false;
 
@@ -72,7 +73,9 @@ public class PauseMenuUI : MonoBehaviour
 
   public void LoadGame()
   {
-    Debug.Log("Load Game not implemented yet");
+    Debug.Log("loading");
+    load = FindAnyObjectByType<LoadPlayer>();
+    load.LoadSave();
   }
 
   public void BackToMainMenu()

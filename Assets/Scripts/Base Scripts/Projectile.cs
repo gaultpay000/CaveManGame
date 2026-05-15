@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
         if (collision.gameObject.GetComponentInChildren<Enemy>() != null)
         {
             collision.gameObject.GetComponentInChildren<Enemy>().TakeDamage(19);
