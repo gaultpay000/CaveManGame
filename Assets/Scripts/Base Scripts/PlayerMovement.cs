@@ -140,6 +140,16 @@ public class PlayerMovement : MonoBehaviour
             isMovingUp = false;
         }
     }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && isMovingUp)
+        {
+            //isMovingUp = false;
+            //rb.linearVelocity = Vector3.zero;
+            rb.linearDamping = 3;
+            isMovingUp = false;
+        }
+    }
     private void OnCollisionExit(Collision collision)
     {
         isMovingUp = true;

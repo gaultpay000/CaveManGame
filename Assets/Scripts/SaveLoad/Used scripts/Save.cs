@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Save : MonoBehaviour
   {
     if (playerInRange && Keyboard.current.yKey.wasPressedThisFrame)
     {
-      Debug.Log("saved");
+      //Debug.Log("saved");
 
       SaveFile(currentWeaponSwitching);
 
@@ -62,6 +63,7 @@ public class Save : MonoBehaviour
   {
     Transform playerPos = FindAnyObjectByType<PlayerMovement>().transform;
 
+    GUIDRegistry.SetScene(SceneManager.GetActiveScene().buildIndex);
     GUIDRegistry.SetWeapons(weaponSwitching.WEAPON_INVENTORY.ToArray());
     GUIDRegistry.Register("spawnPos", playerPos);
     SaveLoadBase.Save("Example", new GameData2());

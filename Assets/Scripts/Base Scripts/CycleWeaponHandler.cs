@@ -13,7 +13,7 @@ public class CycleWeaponHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("switching weapon");
+        //Debug.Log("switching weapon");
         cycleWeaponAction.action.Enable();
         //cycleWeaponAction.action.performed += OnCycleWeapon;
     }
