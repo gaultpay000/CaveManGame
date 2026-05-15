@@ -72,7 +72,7 @@ public class PauseMenuUI : MonoBehaviour
 
   public void LoadGame()
   {
-    Debug.Log("Load Game not implemented yet");
+    Debug.Log("Needs Added");
   }
 
   public void BackToMainMenu()
