@@ -21702,6 +21702,7 @@ MonoBehaviour:
   pausePanel: {fileID: 1189839870}
   settingsPanel: {fileID: 1957354047}
   playerLook: {fileID: 1671919446}
+  load: {fileID: 1611797887}
 --- !u!4 &1580339945
 Transform:
   m_ObjectHideFlags: 0
